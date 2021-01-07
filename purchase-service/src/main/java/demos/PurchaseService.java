@@ -23,6 +23,7 @@ import java.util.UUID;
 
 /*
   Process orders of the form:
+
   {
     "city": "Lyon",
     "items": [
@@ -36,6 +37,8 @@ import java.util.UUID;
       },
     ]
   }
+
+  from "purchases" to "invoices" in Kafka
 */
 
 @SuppressWarnings("DuplicatedCode")

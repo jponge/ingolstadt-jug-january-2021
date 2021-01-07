@@ -31,7 +31,7 @@ public class DemoGenerator extends AbstractVerticle {
 
     producer = KafkaProducer.create(vertx, producerConfig);
 
-    vertx.setPeriodic(1000, id -> generate());
+    vertx.setPeriodic(1500, id -> generate());
   }
 
   private static final List<String> availableItems = List.of("bread", "chocolate", "speaker", "mouse");
