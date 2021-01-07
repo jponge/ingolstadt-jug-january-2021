@@ -40,9 +40,7 @@ public class DemoGenerator extends AbstractVerticle {
 
   private void generate() {
     logger.info("Generating a purchase request");
-
     var request = new JsonObject();
-    request.put("city", cities.get(random.nextInt(cities.size())));
 
     var items = new JsonArray();
     for (var item : availableItems) {
@@ -55,7 +53,9 @@ public class DemoGenerator extends AbstractVerticle {
     if (items.isEmpty()) {
       return;
     }
+
     request.put("items", items);
+    request.put("city", cities.get(random.nextInt(cities.size())));
 
     var record = KafkaProducerRecord.create("purchases", "demo", request);
     producer.writeAndForget(record);
