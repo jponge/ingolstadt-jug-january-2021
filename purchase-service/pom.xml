@@ -5,38 +5,41 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>demos</groupId>
-  <artifactId>delivery-price-service</artifactId>
+  <artifactId>purchase-service</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>delivery-price-service</name>
+  <name>purchase-service</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
-    <logback-classic.version>1.2.3</logback-classic.version>
-    <vertx.version>4.0.0</vertx.version>
     <maven-shade-plugin.version>3.2.3</maven-shade-plugin.version>
-    <mainClass>demos.DeliveryPriceService</mainClass>
+    <mainClass>demos.PurchaseService</mainClass>
+    <mutiny-vertx.version>1.3.0</mutiny-vertx.version>
+    <logback-classic.version>1.2.3</logback-classic.version>
   </properties>
-
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>io.vertx</groupId>
-        <artifactId>vertx-stack-depchain</artifactId>
-        <version>${vertx.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
 
   <dependencies>
     <dependency>
-      <groupId>io.vertx</groupId>
-      <artifactId>vertx-web</artifactId>
-      <version>${vertx.version}</version>
+      <groupId>io.smallrye.reactive</groupId>
+      <artifactId>smallrye-mutiny-vertx-web-client</artifactId>
+      <version>${mutiny-vertx.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.smallrye.reactive</groupId>
+      <artifactId>smallrye-mutiny-vertx-kafka-client</artifactId>
+      <version>${mutiny-vertx.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-log4j12</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>log4j</groupId>
+          <artifactId>log4j</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>ch.qos.logback</groupId>
