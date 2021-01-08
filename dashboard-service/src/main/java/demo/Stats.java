@@ -44,6 +44,8 @@ public class Stats {
 
   // ---------------------------------------------------------------------------------------------------------------- //
 
+  // NOTE: this won't be needed in future releases
+
   @Incoming("per-city-stats")
   @Outgoing("web-city-stats")
   @Broadcast
