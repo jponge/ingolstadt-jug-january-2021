@@ -12,5 +12,6 @@
         <module>dashboard-service</module>
         <module>delivery-price-service</module>
         <module>purchase-service</module>
+        <module>vertx-scratch</module>
     </modules>
 </project>
